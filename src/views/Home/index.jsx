@@ -1,32 +1,44 @@
+import { fetchHomeDateAction } from '@/store/modules/Home'
 import React, { memo, useEffect } from 'react'
-import hyRequest from '@/services'
-
-import { useState } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import HomeBanner from './c-pns/Home-banner'
+import { HomeWrapper } from './style'
+import SectionHeader from "@/components/section-header/index"
+import SectionRooms from '@/components/SectionRooms/index'
 
 const Home = memo(() => {
-  // 定义状态
-  const [ highScore, setHighScore ] = useState({})
+  // 获取数据
+  const { goodPriceInfo } = useSelector((state) => {
+    return {
 
-  // 网络请求的代码
+      goodPriceInfo: state.home.goodPriceinfo
+    }
+  }, shallowEqual)
+ 
+
+  // 发请求
+
+  const dispatch = useDispatch()
   useEffect(() => {
-    hyRequest.get({ url: "/home/highscore" }).then(res => {
-      console.log(res)
-      setHighScore(res)
-    })
-  }, [])
+    dispatch(fetchHomeDateAction())
+  }, [dispatch])
 
   return (
-    <div>
-      <h2>{highScore.title}</h2>
-      <h4>{highScore.subtitle}</h4>
-      <ul>
-        {
-          highScore.list?.map((item) => {
-            return <li key={item.id}>{item.name}</li>
-          })
-        }
-      </ul>
-    </div>
+    <HomeWrapper>
+      <HomeBanner />
+
+      <div className='content'>
+
+        <div className='goodprice'>
+          <SectionHeader title={goodPriceInfo.title} subtitle={goodPriceInfo.subtitle} />
+          <SectionRooms roomList={goodPriceInfo.list} />
+
+        </div>
+
+      </div>
+
+
+    </HomeWrapper >
   )
 })
 
