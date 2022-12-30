@@ -3,18 +3,18 @@ import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import HomeBanner from './c-pns/Home-banner'
 import { HomeWrapper } from './style'
-import SectionHeader from "@/components/section-header/index"
-import SectionRooms from '@/components/SectionRooms/index'
+
+import HomesectionV1 from './c-pns/Home-section-V1/index'
 
 const Home = memo(() => {
   // 获取数据
-  const { goodPriceInfo } = useSelector((state) => {
+  const { goodPriceInfo ,highscoreinfo} = useSelector((state) => {
     return {
-
-      goodPriceInfo: state.home.goodPriceinfo
+      goodPriceInfo: state.home.goodPriceinfo,
+      highscoreinfo: state.home.highscoreinfo
     }
   }, shallowEqual)
- 
+
 
   // 发请求
 
@@ -30,9 +30,8 @@ const Home = memo(() => {
       <div className='content'>
 
         <div className='goodprice'>
-          <SectionHeader title={goodPriceInfo.title} subtitle={goodPriceInfo.subtitle} />
-          <SectionRooms roomList={goodPriceInfo.list} />
-
+          <HomesectionV1 infoData={goodPriceInfo} />
+          <HomesectionV1 infoData={highscoreinfo} />
         </div>
 
       </div>
