@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { Rate } from 'antd';
 import { StarFilled } from '@ant-design/icons';
 const RoomItem = memo((props) => {
-    const { itemData } = props
+    const { itemData , itemWidtch="25%"} = props
     return (
-        <ItemWrapper>
+        <ItemWrapper itemWidtch={itemWidtch}>
             <div className="iner">
                 <div className="cover">
                     <img src={itemData.picture_url} />

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const ItemWrapper = styled.div`
- width: 25%;
+ width: ${props=>props.itemWidtch};
  padding: 8px;
  .iner{
   width: 100%;
