@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SectiontabsWrapper = styled.div`
-display: flex;
+
 .item{
     box-sizing: border-box;
     margin: 10px 10px;
