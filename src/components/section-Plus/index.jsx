@@ -1,7 +1,9 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
+
 import { ScrollviewWrapper } from './style'
-const ScrollView = memo(function ScrollView(props) {
+import IconArrowLeft from '@/assets/svg/icon-arrow-left';
+import IconArrowRight from '@/assets/svg/icon-arrow-right';
+const SectionPlusView = memo(function SectionPlusView(props) {
     //定义是否显示下一个状态
     const [showLeft, setshowLeft] = useState(false);
     const [showRight, setshowRight] = useState(false);
@@ -35,25 +37,27 @@ const ScrollView = memo(function ScrollView(props) {
     return (
         <ScrollviewWrapper>
 
-            {showLeft && <button onClick={() => {
+            {showLeft && <div onClick={() => {
                 controlClickHandle(true)
-            }}>上一个</button>}
+            }}
+                className="control left"
+            ><IconArrowLeft /></div>}
 
-            {showRight && <button onClick={() => {
-                controlClickHandle(false)
-            }}>下一个</button>}
             <div className='scroll'>
                 <div className='scroll-content' ref={scrollCountRef}>
                     {props.children}
                 </div>
             </div>
 
+            {showRight && <div onClick={() => {
+                controlClickHandle(false)
+            }}
+                className="control right"
+            ><IconArrowRight /></div>}
+
         </ScrollviewWrapper>
     )
 })
 
-ScrollView.propTypes = {
 
-}
-
-export default ScrollView
+export default SectionPlusView

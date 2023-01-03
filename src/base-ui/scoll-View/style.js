@@ -6,7 +6,6 @@ export const ScrollviewWrapper = styled.div`
 
   .scroll {
     overflow: hidden;
-
     .scroll-content {
       display: flex;
       transition: transform 250ms ease;
@@ -19,10 +18,10 @@ export const ScrollviewWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    text-align: center;
     border-width: 2px;
     border-style: solid;
     border-color: #fff;

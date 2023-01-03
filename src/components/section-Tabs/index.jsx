@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { SectiontabsWrapper } from './style'
-import ScrollView from '@/base-ui/index'
+import ScrollView from '@/base-ui/scoll-View/index'
 const SectionTabs = memo(function SectionTabs(props) {
     const [current, setcurrent] = useState(0)
     const { TabNames = [], activetableName } = props

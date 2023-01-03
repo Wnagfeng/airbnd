@@ -7,20 +7,31 @@ import { fetchHomeDateAction } from '@/store/modules/Home'
 import HomesectionV1 from './c-pns/Home-section-V1/index'
 import HomesectionV2 from './c-pns/Home-section-V2'
 import { isEmptyObject } from '@/utilis'
+import HomeLongFor from './c-pns/Home-longfor/index'
+import HomeSecttionV3 from './c-pns/Home-section-V3'
 
 
 const Home = memo(() => {
 
   //#region 
   // 获取数据
-  const { goodPriceInfo, highscoreinfo, discountinfo, hotrecommenddest } = useSelector((state) => {
+  const {
+    goodPriceInfo,
+    highscoreinfo,
+    discountinfo,
+    hotrecommenddest,
+    longfor,
+    plus
+  } = useSelector((state) => {
     console.log("----所有数据-------");
     console.log(state)
     return {
       goodPriceInfo: state.home.goodPriceinfo,
       highscoreinfo: state.home.highscoreinfo,
       discountinfo: state.home.discountinfo,
-      hotrecommenddest: state.home.hotrecommenddest
+      hotrecommenddest: state.home.hotrecommenddest,
+      longfor: state.home.longfor,
+      plus: state.home.plus
     }
   }, shallowEqual)
 
@@ -43,6 +54,9 @@ const Home = memo(() => {
 
         {isEmptyObject(goodPriceInfo) && <HomesectionV1 infoData={goodPriceInfo} itemWidtch={"25%"} />}
         {isEmptyObject(highscoreinfo) && <HomesectionV1 infoData={highscoreinfo} itemWidtch={"25%"} />}
+
+        {isEmptyObject(longfor) && <HomeLongFor infoData={longfor} />}
+        {isEmptyObject(plus) && <HomeSecttionV3 infoData={plus} />}
 
       </div>
     </HomeWrapper >
