@@ -20,7 +20,7 @@ const RoomItem = memo((props) => {
                     }
                 </div>
                 <div className="name">{itemData.name} </div>
-                <div className="price">￥{itemData.price}</div>
+                <div className="price">￥{itemData.price}/晚</div>
                 <div className="bottom">
                     <div>
                         <Rate

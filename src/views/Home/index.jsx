@@ -23,8 +23,6 @@ const Home = memo(() => {
     longfor,
     plus
   } = useSelector((state) => {
-    console.log("----所有数据-------");
-    console.log(state)
     return {
       goodPriceInfo: state.home.goodPriceinfo,
       highscoreinfo: state.home.highscoreinfo,
