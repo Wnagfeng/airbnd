@@ -15,6 +15,11 @@ const Detail = React.lazy(() => {
         import("@/views/Detail")
     )
 })
+const Style = React.lazy(() => {
+    return (
+        import("@/views/Demo")
+    )
+})
 
 const routers = [
     {
@@ -31,8 +36,8 @@ const routers = [
         element: <Entire />
     },
     {
-        path: "/detail",
-        element: <Detail />
+        path: "/demo",
+        element: <Style />
     },
 ]
 

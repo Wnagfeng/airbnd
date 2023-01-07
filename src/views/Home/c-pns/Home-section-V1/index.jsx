@@ -6,6 +6,7 @@ import SectionRooms from '@/components/SectionRooms/index'
 import SectionFooter from "@/components/section-footer";
 const HomesectionV1 = memo((props) => {
     const { infoData, itemWidtch } = props
+    console.log(infoData)
     return (
         <HomeSectionV1Wrapper>
             <SectionHeader title={infoData.title} subtitle={infoData.subtitle} />

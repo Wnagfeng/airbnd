@@ -24,7 +24,7 @@ const EntirePagination = memo(function EntirePagination(props) {
      window.scrollTo(0, 0)
     // page是你当亲点击的页数号
     // 在这里我们根据当前的页号去获取最新的数据
-    dispatch(fetchRoomlistAction(page - 1))
+    dispatch(fetchRoomlistAction(page-1))
     // console.log(page)
 
   }
